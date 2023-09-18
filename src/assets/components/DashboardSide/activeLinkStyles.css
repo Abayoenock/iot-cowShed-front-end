@@ -1,0 +1,3 @@
+.ActiveLink li {
+  @apply hover:bg-white text-black bg-white rounded-l-xl ml-4 w-[calc(100%-16px)] before:w-[20px] before:h-[20px] before:bg-transparent before:absolute before:right-0 before:-top-[20px] before:rounded-lg before:shadow-custom-before   after:w-[20px] after:h-[20px] after:bg-transparent after:absolute after:right-0 after:-bottom-[20px] after:rounded-lg after:shadow-custom-after font-semibold;
+}

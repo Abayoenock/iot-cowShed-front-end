@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: solid 1px red; */
+}
+body {
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden !important;
+  position: relative;
+  scroll-behavior: smooth;
+}
+#root {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+@layer base {
+  html {
+    font-family: "Poppins", sans-serif;
+  }
+}
+/* to make the increment and decrement buttons invisible  */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* =======================the humbeger menu button on small screens  */
+input#menu {
+  display: none;
+}
+
+.icon {
+  cursor: pointer;
+  display: block;
+  height: 40px;
+  padding: 16px;
+  width: 40px;
+}
+
+label.icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+label.icon2 {
+  top: 10px;
+  z-index: 200 !important;
+}
+
+.icon .menu,
+.icon .menu::before,
+.icon .menu::after {
+  background: #065697;
+  content: "";
+  display: block;
+  height: 4px;
+  position: absolute;
+
+  transition: background ease 0.3s, top ease 0.3s 0.3s, transform ease 0.3s;
+  width: 28px;
+}
+
+.icon .menu::before {
+  top: -8px;
+}
+.icon .menu::after {
+  top: 8px;
+}
+
+#menu:checked + .icon .menu {
+  background: transparent;
+}
+
+#menu:checked + .icon .menu::before {
+  transform: rotate(45deg);
+}
+
+#menu:checked + .icon .menu::after {
+  transform: rotate(-45deg);
+}
+
+#menu:checked + .icon .menu::before,
+#menu:checked + .icon .menu::after {
+  top: 0;
+  background-color: white;
+  transition: top ease 0.3s, transform ease 0.3s 0.3s, background ease 0.3s;
+}
+
+#menu:checked body {
+  overflow: hidden !important;
+  background-color: green;
+}
+
+/* =========================end of the humberger menu for the small devices ===========  */
+
+/* the btn styles to handle the problem if nested group on card hover and btn hover  */
+.btn-card:hover > * {
+  @apply text-white translate-x-1 animate-pulse opacity-100;
+}
+
+/* change the style of the scroll  */
+/* the styles for the scroll bar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  transition: all 0.3ms ease-in;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-green-700;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-green-200;
+}
+
+.overlay::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+.hero-section-image {
+  background-image: url("/devImages/hero-background.jpg");
+}
+.hero-border {
+  border-radius: 33% 1% 50% 25% / 0% 38% 47% 0%;
+}
